@@ -1,0 +1,17 @@
+{% extends 'enmashcorp/base.html' %}
+
+{% block content %}
+<form class="form-signin" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <h2>Вход</h2>
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Имя" name="username" required>
+    </div>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Пароль" name="password" required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn-primary btn">Вход</button>
+    </div>
+</form>
+{% endblock %}

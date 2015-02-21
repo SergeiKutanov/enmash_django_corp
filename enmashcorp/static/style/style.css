@@ -2,3 +2,9 @@
 .navbar-brand img {
     height: 100%;
 }
+
+/*signin form*/
+.form-signin {
+    width: 300px;
+    margin: 0 auto;
+}

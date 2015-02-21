@@ -47,7 +47,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'middleware.LoginRequiredMiddleware',
 )
+
+LOGIN_URL = '/login/'
 
 ROOT_URLCONF = 'enmashcorp.urls'
 

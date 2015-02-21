@@ -30,8 +30,16 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="main-menu">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
                 <li><a href="{% url 'contacts_index' %}">Контакты</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if user.is_authenticated %}
+                <li><a href="#">Добрый день, {{ user.username }}</a></li>
+                <li><a href="{% url 'logout' %}">Выход</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}">Вход</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
