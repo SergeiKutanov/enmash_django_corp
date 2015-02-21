@@ -1,0 +1,11 @@
+{% extends 'contacts/index.html' %}
+
+{% block contacts_content %}
+<h2>{{ contact.service.name }}</h2>
+<a href="{% url 'contact_service_detail' contact.service.id %}">Все сотрудники службы</a>
+<h3>{{ contact.name }}</h3>
+<ul>
+    <li>Городской телефон: {{ contact.landlinePhone }}</li>
+    <li>Внутренний телефон: {{ contact.interofficePhone }}</li>
+</ul>
+{% endblock %}

@@ -1,0 +1,4 @@
+/*bootstrap overrides*/
+.navbar-brand img {
+    height: 100%;
+}

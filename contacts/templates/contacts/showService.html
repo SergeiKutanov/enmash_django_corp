@@ -1,0 +1,10 @@
+{% extends 'contacts/index.html' %}
+
+{% block contacts_content %}
+<h2>Служба - {{ service.name }}</h2>
+<ul>
+    {% for contact in service.personcontact_set.all %}
+        <li><a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
