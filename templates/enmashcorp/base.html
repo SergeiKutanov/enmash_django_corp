@@ -32,6 +32,7 @@
         <div class="collapse navbar-collapse" id="main-menu">
             <ul class="nav navbar-nav navbar-left">
                 <li><a href="{% url 'contacts_index' %}">Контакты</a></li>
+                <li><a href="{% url 'filestorage_index' %}">Файлы</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if user.is_authenticated %}

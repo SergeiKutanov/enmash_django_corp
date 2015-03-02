@@ -13,6 +13,11 @@ class PersonContact(models.Model):
     landlinePhone = models.CharField(max_length=20, null=True, blank=True)
     service = models.ForeignKey(ContactService)
 
+    class Meta:
+        permissions = (
+            ("view_contact", "Can view a contact"),
+        )
+
     def __str__(self):
         return self.name
 

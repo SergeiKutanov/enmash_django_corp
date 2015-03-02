@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'contacts'
+    'contacts',
+    'filestorage'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -47,7 +48,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.LoginRequiredMiddleware',
+    # 'middleware.LoginRequiredMiddleware',
 )
 
 LOGIN_URL = '/login/'
@@ -88,10 +89,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#todo didn't get it at the first time, have to look at it later
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/uploads/'
+
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 STATICFILES_DIRS = (
     os.path.join(SITE_ROOT, 'static/'),
+    MEDIA_ROOT
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+

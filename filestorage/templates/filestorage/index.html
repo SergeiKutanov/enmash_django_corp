@@ -1,0 +1,42 @@
+{% extends 'enmashcorp/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12 col-sm-8">
+        <h1>Каталог Файлов</h1>
+
+        {% if request.method == 'POST' %}
+            {% if files %}
+            <div class="alert alert-success" role="alert">
+                Найдено файлов: {{ files | length }}
+            </div>
+            {% else %}
+            <div class="alert alert-danger" role="alert">
+                Найдено файлов: {{ files | length }}
+            </div>
+            {% endif %}
+        {% endif %}
+
+        <ul class="list-group">
+            {% for file in files %}
+            <li class="list-group-item">
+                <span class="badge">{{ file.createdAt | date:"d/M/Y"}}</span>
+                <a href="{{ STATIC_URL}}{{ file.file }}">{{ file.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+
+
+    </div>
+    <div class="col-xs-12 col-sm-4">
+        <h2>Поиск файлов</h2>
+        <form action="{% url 'filestorage_index' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ search_form.searchQuery }}
+            </div>
+            <button type="submit" class="btn btn-primary">Искать</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
