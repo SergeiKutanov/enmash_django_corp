@@ -6,11 +6,14 @@
         <h1>Контакты</h1>
         {% block contacts_content %}
         <h2>Список служб</h2>
-        <ul>
+        <div class="list-group">
             {% for service in services %}
-                <li><a href="{% url 'contact_service_detail' service.id %}">{{ service.name }}</a></li>
+                <a class="list-group-item" href="{% url 'contact_service_detail' service.id %}">
+                    {{ service.name }}
+                    <span class="pull-right label label-info">Контактов в службе: {{ service.personcontact_set.all | length }}</span>
+                </a>
             {% endfor %}
-        </ul>
+        </div>
         {% endblock %}
     </div>
     <div class="col-xs-12 col-sm-3">

@@ -2,9 +2,25 @@
 
 {% block contacts_content %}
 <h2>Служба - {{ service.name }}</h2>
-<ul>
+<div class="list-group">
     {% for contact in service.personcontact_set.all %}
-        <li><a href="{% url 'contact_detail' contact.id %}">{{ contact.name }}</a></li>
+            <a href="{% url 'contact_detail' contact.id %}" class="list-group-item">
+                {{ contact.name }}
+                {% if contact.landlinePhone or contact.interofficePhone %}
+                <span class="label label-success pull-right">
+                    {% if contact.landlinePhone %}
+                        {{ contact.landlinePhone }}
+                    {% endif %}
+                    {% if contact.landlinePhone and contact.interofficePhone %}
+                        |
+                    {% endif %}
+                    {% if contact.interofficePhone %}
+                        {{ contact.interofficePhone }}
+                    {% endif %}
+                </span>
+                {% endif %}
+            </a>
+
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

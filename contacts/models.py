@@ -2,15 +2,15 @@ from django.db import models
 from django.contrib import admin
 
 class ContactService(models.Model):
-    name = models.CharField(max_length=200)
+    name = models.CharField(max_length=200, verbose_name='Название службы')
 
     def __str__(self):
         return self.name
 
 class PersonContact(models.Model):
-    name = models.CharField(max_length=200)
-    interofficePhone = models.CharField(max_length=20, null=True, blank=True)
-    landlinePhone = models.CharField(max_length=20, null=True, blank=True)
+    name = models.CharField(max_length=200, verbose_name='Имя контакта')
+    interofficePhone = models.CharField(max_length=100, null=True, blank=True, verbose_name='Внутренний телефон')
+    landlinePhone = models.CharField(max_length=100, null=True, blank=True, verbose_name='Внешний телефон')
     service = models.ForeignKey(ContactService)
 
     class Meta:
@@ -20,6 +20,3 @@ class PersonContact(models.Model):
 
     def __str__(self):
         return self.name
-
-admin.site.register(ContactService)
-admin.site.register(PersonContact)
