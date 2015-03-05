@@ -1,0 +1,19 @@
+{% extends 'enmashcorp/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Новости</h1>
+{% if news %}
+    <div class="list-group">
+    {% for newsItem in news %}
+        <div class="list-group-item">
+            {% include 'news/block/news-list-item.html' %}
+        </div>
+    {% endfor %}
+    </div>
+{% endif %}
+    </div>
+</div>
+
+{% endblock %}

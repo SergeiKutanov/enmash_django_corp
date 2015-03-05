@@ -9,5 +9,6 @@ urlpatterns = patterns('',
     url(r'^logout/$', views.logout_action, name='logout'),
     url(r'^contacts/', include('contacts.urls')),
     url(r'^filestorage/', include('filestorage.urls')),
+    url(r'^news/', include('news.urls')),
     url(r'^admin/', include(admin.site.urls)),
 )

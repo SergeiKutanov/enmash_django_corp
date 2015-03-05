@@ -1,0 +1,8 @@
+<h2>Новости</h2>
+<div class="list-group">
+    {% for newsItem in news %}
+    <div class="list-group-item">
+        {% include 'news/block/news-list-item.html' %}
+    </div>
+    {% endfor %}
+</div>

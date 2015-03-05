@@ -7,11 +7,19 @@ from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 
 # @login_required(login_url='/login/')
+from news.models import NewsItem
+
+
 def index(request):
+
+    news = NewsItem.objects.filter(publish=True).order_by('-created_at')[0:5]
 
     return render(
         request,
-        'enmashcorp/index.html'
+        'enmashcorp/index.html',
+        {
+            'news': news
+        }
     )
 
 
